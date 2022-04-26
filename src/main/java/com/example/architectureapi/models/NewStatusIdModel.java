@@ -1,6 +1,6 @@
 package com.example.architectureapi.models;
 
-public class NewStatusId {
+public class NewStatusIdModel {
     private String new_status_id;
 
     public String getNew_status_id() {

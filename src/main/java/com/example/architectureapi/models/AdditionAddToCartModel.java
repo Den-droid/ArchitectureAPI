@@ -1,6 +1,6 @@
 package com.example.architectureapi.models;
 
-public class AdditionAddToCart {
+public class AdditionAddToCartModel {
     private String id;
     private int amount;
 

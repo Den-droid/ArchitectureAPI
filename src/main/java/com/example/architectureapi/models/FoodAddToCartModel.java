@@ -2,22 +2,22 @@ package com.example.architectureapi.models;
 
 import java.util.List;
 
-public class FoodAddToCart {
+public class FoodAddToCartModel {
     private String id;
     private int amount;
-    private List<AdditionAddToCart> additions;
+    private List<AdditionAddToCartModel> additions;
 
-    public FoodAddToCart(String id, int amount, List<AdditionAddToCart> additions) {
+    public FoodAddToCartModel(String id, int amount, List<AdditionAddToCartModel> additions) {
         this.id = id;
         this.amount = amount;
         this.additions = additions;
     }
 
-    public List<AdditionAddToCart> getAdditions() {
+    public List<AdditionAddToCartModel> getAdditions() {
         return additions;
     }
 
-    public void setAdditions(List<AdditionAddToCart> additions) {
+    public void setAdditions(List<AdditionAddToCartModel> additions) {
         this.additions = additions;
     }
 
