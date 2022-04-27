@@ -11,10 +11,10 @@ import java.util.Map;
 @RequestMapping("/api")
 public class SimpleController {
 
-    @PostMapping(path = "/users/{user_id}/cart/add")
-    public Map<String, String> AddToCart(@PathVariable String user_id, @RequestBody FoodAddToCartModel food) {
+    @PostMapping(path = "/users/{userId}/cart/add")
+    public Map<String, String> AddToCart(@PathVariable String userId, @RequestBody FoodAddToCartModel food) {
         Map<String, String> toReturn = new HashMap<>();
-        toReturn.put("message", DatabaseMock.saveFoodToUsersCart(food, user_id));
+        toReturn.put("message", DatabaseMock.saveFoodToUsersCart(food, userId));
         return toReturn;
     }
 
@@ -45,21 +45,21 @@ public class SimpleController {
         return DatabaseMock.getFoodByCategory(type);
     }
 
-    @GetMapping(path = "/orders/{order_id}")
-    public Map<String, String> GetOrderByID(@PathVariable String order_id) {
-        return DatabaseMock.getOrderByID(order_id);
+    @GetMapping(path = "/orders/{orderId}")
+    public Map<String, String> GetOrderByID(@PathVariable String orderId) {
+        return DatabaseMock.getOrderByID(orderId);
     }
 
-    @PostMapping(path = "/orders/{order_id}/take")
-    public Map<String, String> TakeOrder(@PathVariable String order_id, @RequestBody CourierTakesOrderModel cto) {
+    @PostMapping(path = "/orders/{orderId}/take")
+    public Map<String, String> TakeOrder(@PathVariable String orderId, @RequestBody CourierTakesOrderModel cto) {
         Map<String, String> toReturn = new HashMap<>();
-        toReturn.put("message", DatabaseMock.takeOrder(order_id, cto));
+        toReturn.put("message", DatabaseMock.takeOrder(orderId, cto));
         return toReturn;
     }
 
-    @GetMapping(path = "/users/{user_id}/orders")
-    public List<Map<String, Object>> GetUserOrdersById(@PathVariable String user_id) {
-        return DatabaseMock.getUserOrders(user_id);
+    @GetMapping(path = "/users/{userId}/orders")
+    public List<Map<String, Object>> GetUserOrdersById(@PathVariable String userId) {
+        return DatabaseMock.getUserOrders(userId);
     }
 
     @GetMapping(path = "/orders")
@@ -67,30 +67,30 @@ public class SimpleController {
         return DatabaseMock.getOrdersByStreet(street);
     }
 
-    @GetMapping(path = "/users/{user_id}")
-    public Map<String, String> GetUserInfoById(@PathVariable String user_id) {
-        return DatabaseMock.getUserInfo(user_id);
+    @GetMapping(path = "/users/{userId}")
+    public Map<String, String> GetUserInfoById(@PathVariable String userId) {
+        return DatabaseMock.getUserInfo(userId);
     }
 
-    @GetMapping(path = "/orders/{order_id}/status")
-    public Map<String, Object> GetOrderStatusById(@PathVariable String order_id) {
-        return DatabaseMock.getOrderStatus(order_id);
+    @GetMapping(path = "/orders/{orderId}/status")
+    public Map<String, Object> GetOrderStatusById(@PathVariable String orderId) {
+        return DatabaseMock.getOrderStatus(orderId);
     }
 
-    @GetMapping(path = "/users/{user_id}/addresses_by_def")
-    public List<Map<String, String>> GetAddressesByDefByUserId(@PathVariable String user_id) {
-        return DatabaseMock.getAddressesByDef(user_id);
+    @GetMapping(path = "/users/{userId}/addresses_by_def")
+    public List<Map<String, String>> GetAddressesByDefByUserId(@PathVariable String userId) {
+        return DatabaseMock.getAddressesByDef(userId);
     }
 
-    @GetMapping(path = "/users/{user_id}/pref_regions")
-    public List<Map<String, String>> GetPrefRegionsByUserId(@PathVariable String user_id) {
-        return DatabaseMock.getPrefRegions(user_id);
+    @GetMapping(path = "/users/{userId}/pref_regions")
+    public List<Map<String, String>> GetPrefRegionsByUserId(@PathVariable String userId) {
+        return DatabaseMock.getPrefRegions(userId);
     }
 
-    @PostMapping(path = "/users/{user_id}/pref_regions/add")
-    public Map<String, String> AddPrefRegionsToUser(@PathVariable String user_id, @RequestBody AddPrefRegionsModel prefRegions) {
+    @PostMapping(path = "/users/{userId}/pref_regions/add")
+    public Map<String, String> AddPrefRegionsToUser(@PathVariable String userId, @RequestBody AddPrefRegionsModel prefRegions) {
         Map<String, String> toReturn = new HashMap<>();
-        toReturn.put("message", DatabaseMock.addPrefRegions(user_id, prefRegions));
+        toReturn.put("message", DatabaseMock.addPrefRegions(userId, prefRegions));
         return toReturn;
     }
 }
