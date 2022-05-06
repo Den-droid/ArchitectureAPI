@@ -126,8 +126,8 @@ public class DatabaseMock {
         return userOrders;
     }
 
-    public static List<Map<String, String>> getOrdersByStreet(String name) {
-        List<Map<String, String>> orders = new ArrayList<>();
+    public static Map<String, Object> getOrders(String name, int page) {
+        List<Map<String, Object>> orders = new ArrayList<>();
         orders.add(new LinkedHashMap<>());
         orders.get(0).put("id", "34");
         orders.get(0).put("address", "Troyeschyna");
@@ -140,7 +140,16 @@ public class DatabaseMock {
         orders.get(2).put("id", "65");
         orders.get(2).put("address", "Livoberezhya");
         orders.get(2).put("total_price", "95");
-        return orders;
+
+        Map<String, Integer> pagination = new HashMap<>();
+        pagination.put("page", page);
+        pagination.put("total_pages", 3);
+        pagination.put("elements_num", 5);
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("orders", orders);
+        result.put("pagination", pagination);
+        return result;
     }
 
     public static Map<String, String> getUserInfo(String user_id) {
